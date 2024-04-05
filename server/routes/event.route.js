@@ -67,7 +67,7 @@ router.delete("/:id", async (req,res)=>{
     try {
         const eventId = req.params.id;
         await Event.findByIdAndDelete(eventId);
-        res.status(200).json({ messgae: "Event deleted successfuly"})
+        res.status(200).json({ messgae: "Event deleted successfully"})
     } catch (error) {
         
     }
