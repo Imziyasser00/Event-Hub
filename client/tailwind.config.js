@@ -9,6 +9,8 @@ export default {
       colors: {
         primary: "#7848F4",
         darkPrimary: "#582DC7",
+        bgColor: "#F8F8FA",
+        HeroBanner: "#10107B",
       }
     },
   },

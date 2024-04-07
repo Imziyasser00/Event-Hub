@@ -15,10 +15,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+      <div className=" bg-bgColor">
         <div className="max-w-7xl mx-auto">
           <Navbar />
           <RouterProvider router={router} />
         </div>
+      </div>
       </ClerkProvider>
     </LocalizationProvider>
   </React.StrictMode>

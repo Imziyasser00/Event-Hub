@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post("/", async (req,res)=>{
     try {
-        const { eventName, description, date, location, time, price, speakers, image } = req.body;
+        const { eventName, description, category, date, location, time, price, speakers, image } = req.body;
 
         const existingEvent = await Event.findOne({ eventName })
         if (existingEvent) {
@@ -18,6 +18,7 @@ router.post("/", async (req,res)=>{
         const newEvent = new Event({
             eventName,
             description,
+            category,
             date,
             location,
             time,
