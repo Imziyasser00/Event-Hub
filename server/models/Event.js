@@ -15,6 +15,10 @@ const EventSchema = new Schema({
         type: String,
         required: true,
     },
+    category: {
+        type: String,
+        required: true,
+    },
     location: {
         city: {
             type: String,
