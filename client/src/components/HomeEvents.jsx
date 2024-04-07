@@ -29,7 +29,7 @@ const HomeEvents = () => {
       </div>
       <div className='my-10 grid grid-cols-3 gap-4'>
         {/* Render events only when loading is false */}
-        {!loading && sixEvents.map((item, index) => (
+        {!loading && events.map((item, index) => (
 
           <div key={index}>
             <EventCard price={item.price} imageSource={item.image} title={item.eventName} date={item.date} time={item.time} location={item.location} />
