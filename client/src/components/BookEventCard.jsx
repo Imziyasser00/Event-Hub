@@ -24,7 +24,7 @@ const BookEventCard = ({ id, date, price, location, time }) => {
         setLoading(false);
       });
     }
-    }, []);
+    }, [isLoaded, isSignedIn]);
   return (
     <div className="bg-white rounded-lg p-5 flex flex-col gap-3 w-full">
       <div className="w-full flex justify-between">

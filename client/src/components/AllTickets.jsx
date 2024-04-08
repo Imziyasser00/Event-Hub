@@ -23,7 +23,7 @@ const AllTickets = () => {
           setIsLoading(false);
         });
     }
-  }, []);
+  }, [isLoaded, isSignedIn]);
   return (
     <div className="grid grid-col-3  my-12">
       {!isLoading &&
