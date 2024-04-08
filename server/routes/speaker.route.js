@@ -2,8 +2,9 @@ import express from "express";
 
 const router = express.Router();
 
-router.get("/", (req,res)=>{
-    console.log("router is working");
+router.get("/:id", (req,res)=>{
+    const speakerId = req.params.id;
+    const 
 })
 
 router.post("/", (req,res)=>{

@@ -5,6 +5,8 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
+import { BsTicketPerforatedFill } from "react-icons/bs";
+
 
 
 const Navbar = () => {
@@ -26,7 +28,15 @@ const Navbar = () => {
             </div>
           </SignedOut>
           <SignedIn>
+          <div className="flex justify-between items-center">
+            <div className="pr-8">
+              <a href="/tickets" className="text-primary font-bold flex items-center gap-2">
+              <BsTicketPerforatedFill />
+                My Tickets
+              </a>
+            </div>
             <UserButton />
+          </div>
           </SignedIn>
         </div>
       </div>
