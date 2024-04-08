@@ -17,7 +17,6 @@ const EventHero = () => {
     Axios.get(`http://localhost:3001/api/event/${id}`)
       .then((res) => {
         setEventData(res.data);
-        console.log(res.data);
         setLoading(false);
       })
       .catch((error) => {

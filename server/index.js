@@ -1,5 +1,6 @@
 import express from "express";
 import eventRoute from "./routes/event.route.js";
+import ticketRoute from "./routes/ticket.route.js";
 import mongoose from "mongoose";
 import cors from "cors"
 
@@ -12,6 +13,7 @@ app.use(express.static("public"))
 
 // Routes 
 app.use("/api/event", eventRoute);
+app.use("/api/tickets", ticketRoute);
 
 // MONGOOSE SETUP 
 

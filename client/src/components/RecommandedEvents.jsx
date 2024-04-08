@@ -12,7 +12,6 @@ const RecommandedEvents = ({ category }) => {
     )
       .then((res) => {
         setRecommandedEvents(res.data);
-        console.log(recommandedEvents);
         setLoading(false);
       })
       .catch((error) => {
