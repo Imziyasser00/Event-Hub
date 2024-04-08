@@ -49,6 +49,16 @@ router.get("/", async (req, res) => {
 });
 
 
+router.get("/:id", async (req,res)=>{
+    try {
+        const events = await Event.findById(req.params.id);
+        res.status(200).json(events);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+})
+
 
 router.put("/:id", async (req,res)=>{
     try {

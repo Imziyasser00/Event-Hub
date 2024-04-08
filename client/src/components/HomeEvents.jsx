@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
-import EventCard from './EventCard'
-import HeroBanner from './HeroBanner';
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
+import EventCard from "./EventCard";
+import HeroBanner from "./HeroBanner";
+import Brands from "./Brands";
 
 const HomeEvents = () => {
   const [events, setEvents] = useState([]);
-  const [sixEvents, setSixEvents] = useState([])             
+  const [sixEvents, setSixEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -13,31 +14,46 @@ const HomeEvents = () => {
     Axios.get("http://localhost:3001/api/event")
       .then((res) => {
         setEvents(res.data);
-        setSixEvents(events.slice(0, 6));
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Error fetching events:', error);
+        console.error("Error fetching events:", error);
         setLoading(false);
       });
   }, []);
 
+  useEffect(() => {
+    // Update sixEvents whenever events changes
+    setSixEvents(events.slice(0, 6));
+  }, [events]);
+
   return (
     <div>
-      <div className='text-3xl font-bold'>
-        Upcoming<span className='text-primary'>Events</span>
+      <div className="text-3xl font-bold">
+        Upcoming <span className="text-primary">Events</span>
       </div>
-      <div className='my-10 grid grid-cols-3 gap-4'>
+      <div className="my-10 grid grid-cols-3 gap-4">
         {/* Render events only when loading is false */}
-        {!loading && events.map((item, index) => (
-
-          <div key={index}>
-            <EventCard price={item.price} imageSource={item.image} title={item.eventName} date={item.date} time={item.time} location={item.location} />
-          </div>
-        ))}
+        {!loading &&
+          sixEvents.map((item, index) => (
+            <div key={index}>
+              <EventCard
+                price={item.price}
+                imageSource={item.image}
+                title={item.eventName}
+                date={item.date}
+                time={item.time}
+                location={item.location}
+                id={item._id}
+              />
+            </div>
+          ))}
       </div>
-      <div>
-          <HeroBanner />
+      <div className="my-24">
+        <HeroBanner />
+      </div>
+      <div className="pb-16">
+        <Brands />
       </div>
     </div>
   );

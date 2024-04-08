@@ -1,14 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
+import Events from "../pages/Events";
 
-const router = createBrowserRouter([
+const allRoutes = createBrowserRouter([
     {
         path: '/',
         element: <Home />
     },
     {
         path: '/events',
-        element: <div>events</div>
+        element: <Events />
     },
     {
         path: '/event/:id',
@@ -16,4 +17,4 @@ const router = createBrowserRouter([
     },
 ])
 
-export default router
+export default allRoutes

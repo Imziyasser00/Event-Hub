@@ -6,12 +6,18 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 
+
 const Navbar = () => {
+
+
+
   return (
     <div className="w-full h-full py-6">
       <div className="flex justify-between items-center  px-5">
         <div className="text-3xl font-bold">
-          Event <span className="text-primary">Hub</span>
+        <a href="/">
+        Event <span className="text-primary">Hub</span>
+        </a>
         </div>
         <div>
           <SignedOut>
@@ -20,9 +26,7 @@ const Navbar = () => {
             </div>
           </SignedOut>
           <SignedIn>
-            <div className="">
-              <UserButton />
-            </div>
+            <UserButton />
           </SignedIn>
         </div>
       </div>
