@@ -29,6 +29,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 <Route path="/" element={<Home />}/>
                 <Route path="/event/:id" element={<Event />}/>
                 <Route path="/tickets/" element={<Tickets />}/>
+                <Route path="/*" element={<PageNotFound />}/>
               </Routes>
               <Footer />
             </div>

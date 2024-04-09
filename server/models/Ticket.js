@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const TicketSchema = new Schema({
     eventId: {
-        type: Schema.Types.ObjectId,
+        type: String,
         ref: 'Event',
         required: true,
     },

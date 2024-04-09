@@ -42,13 +42,25 @@ router.get("/", async (req, res) => {
 router.get("/user/:id", async (req, res) => {
   try {
     const userId = req.params.id;
+    console.log(userId)
     const ticketUser = await Ticket.find({ userId: userId });
     res.status(200).json(ticketUser);
+    console.log(ticketUser)
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const ticketId = req.params.id;
+    await Ticket.findByIdAndDelete(ticketId);
+    res.status(200).json({ messgae: "ticket deleted successfully" });
+  } catch (error) {
+    console.log(error)
+  }
+})
 
 
 export default router;
