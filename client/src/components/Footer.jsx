@@ -5,7 +5,7 @@ import LinkedIn from "../assets/linkedIn.png";
 
 const Footer = () => {
   return (
-    <div className="bg-HeroBanner h-64">
+    <div className="bg-HeroBanner h-64 mt-auto">
       <div>
         <div className="text-4xl font-bold text-white w-full text-center pt-8">
           Event <span className="text-primary">Hub</span>

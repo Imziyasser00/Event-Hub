@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Event from "./pages/Event";
 import Footer  from './components/Footer'
 import Tickets from "./pages/Tickets";
+import PageNotFound from "./pages/PageNotFound";
 const PUBLISHABLE_KEY =
   "pk_test_c3dlZXBpbmctdGFoci03Ni5jbGVyay5hY2NvdW50cy5kZXYk";
 
@@ -22,8 +23,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
         <BrowserRouter>
-          <div className=" bg-bgColor">
-            <div className="max-w-7xl mx-auto min-h-screen	">
+          <div className=" bg-bgColor  min-h-screen">
+            <div className="max-w-7xl mx-auto min-h-screen ">
               <Navbar />
               <Routes>
                 <Route path="/" element={<Home />}/>
