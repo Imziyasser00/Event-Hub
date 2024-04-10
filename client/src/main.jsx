@@ -13,6 +13,8 @@ import Event from "./pages/Event";
 import Footer  from './components/Footer'
 import Tickets from "./pages/Tickets";
 import PageNotFound from "./pages/PageNotFound";
+import Events from "./pages/Events";
+import Register from "./components/Register";
 const PUBLISHABLE_KEY =
   "pk_test_c3dlZXBpbmctdGFoci03Ni5jbGVyay5hY2NvdW50cy5kZXYk";
 
@@ -29,6 +31,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <Routes>
                 <Route path="/" element={<Home />}/>
                 <Route path="/event/:id" element={<Event />}/>
+                <Route path="/events/" element={<Events />}/>
+                <Route path="/event/register/:id" element={<Register />}/>
+                <Route path="/event/*" element={<PageNotFound />}/>
                 <Route path="/tickets/" element={<Tickets />}/>
                 <Route path="/*" element={<PageNotFound />}/>
               </Routes>

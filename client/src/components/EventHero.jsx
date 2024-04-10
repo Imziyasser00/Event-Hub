@@ -38,7 +38,7 @@ const EventHero = () => {
   }, [isCopied]);
 
   return (
-    <div>
+    <div className="mt-6" >
       {!loading && eventData && (
         <div>
           <div className="h-full relative ">
