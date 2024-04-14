@@ -7,13 +7,13 @@ const AllTickets = () => {
   const { isSignedIn, user, isLoaded } = useUser();
   const [isLoading, setIsLoading] = useState(true);
   const [tickets, setTickets] = useState([]);
-  
+
   useEffect(() => {
     // Fetching data from the server
     if (isLoaded && isSignedIn) {
       const userId = user.id;
       Axios.get(`http://localhost:3001/api/tickets/user/${userId}`)
-      .then((res) => {
+        .then((res) => {
           setTickets(res.data);
           console.log(res.data);
           setIsLoading(false);

@@ -28,7 +28,7 @@ const HomeEvents = () => {
   }, [events]);
 
   return (
-    <div className="mt-8">
+    <div>
       <div className="text-3xl font-bold">
         Upcoming <span className="text-primary">Events</span>
       </div>
