@@ -11,13 +11,11 @@ router.post("/", async (req, res) => {
     const {
       eventId,
       userId,
-      price,
     } = req.body;
 
     const newTicket = new Ticket({
         eventId,
         userId,
-        price,
     });
 
     await newTicket.save();
@@ -61,6 +59,18 @@ router.delete('/:id', async (req, res) => {
     console.log(error)
   }
 })
+
+// Delete all tickets
+router.delete('/', async (req, res) => {
+  try {
+    await Ticket.deleteMany({});
+    res.status(200).json({ message: "All tickets deleted successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 
 
 export default router;

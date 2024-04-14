@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import Axios from "axios";
+import Loading from "./Loading";
 import { useUser } from "@clerk/clerk-react";
 const BookEventCard = ({ id, date, price, location, time }) => {
   const [data, setData] = useState([]);
@@ -28,7 +29,7 @@ const BookEventCard = ({ id, date, price, location, time }) => {
           setLoading(false); 
         });
     }
-  }, [loading, Booked]);
+  }, [loading, Booked,isLoaded]);
   return (
     <div className="bg-white rounded-lg p-5 flex flex-col gap-3 w-full">
       <div className="w-full flex justify-between">
@@ -53,13 +54,11 @@ const BookEventCard = ({ id, date, price, location, time }) => {
       </div>
       <div className="w-full text-center">
           {!loading && Booked == "Already Booked"? (
-            <a className=" text-white" href="/event/:id/register">
             <div className="w-full flex items-center justify-center gap-2 border-primary  border-2 font-bold rounded pointer-events-none text-primary bg-purple-100 py-2 rounded-sm">
              {Booked} <FaRegCalendarCheck className="text-xl" />
             </div>
-            </a>
           ) : (
-            <a className=" text-white" href="/event/:id/register">
+            <a className=" text-white" href={`/event/register/${id}`}>
             <div className="w-full bg-primary py-2 rounded-sm">{Booked}</div>
             </a>
           )}

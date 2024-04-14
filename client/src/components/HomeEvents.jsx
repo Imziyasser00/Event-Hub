@@ -3,6 +3,7 @@ import Axios from "axios";
 import EventCard from "./EventCard";
 import HeroBanner from "./HeroBanner";
 import Brands from "./Brands";
+import Loading from "./Loading";
 
 const HomeEvents = () => {
   const [events, setEvents] = useState([]);
@@ -32,6 +33,7 @@ const HomeEvents = () => {
       <div className="text-3xl font-bold">
         Upcoming <span className="text-primary">Events</span>
       </div>
+      {loading && (<div className=""><Loading /></div>)}
       <div className="my-10 grid grid-cols-3 gap-4">
         {/* Render events only when loading is false */}
         {!loading &&

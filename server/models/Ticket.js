@@ -12,10 +12,7 @@ const TicketSchema = new Schema({
         type: String,
         required: true,
     },
-    price: {
-        type: Number,
-        required: true,
-    },
+
     purchasedAt: {
         type: Date,
         default: Date.now,

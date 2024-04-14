@@ -6,6 +6,7 @@ import map from "../assets/map.png";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { FaCopy } from "react-icons/fa";
 import RecommandedEvents from "./RecommandedEvents";
+import Loading from "./Loading";
 
 const EventHero = () => {
   const [isCopied, setIsCopied] = useState(false);
@@ -39,10 +40,12 @@ const EventHero = () => {
 
   return (
     <div>
+    {loading && (<div className=""><Loading /></div>)}
+
       {!loading && eventData && (
         <div>
           <div className="h-full relative ">
-            <div className="relative">
+            <div className="relative mt-8">
               <img
                 src={eventData.image}
                 alt="event image"

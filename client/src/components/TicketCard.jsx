@@ -18,7 +18,7 @@ const TicketCard = ({ticket}) => {
           });
       }, []);
   return (
-    <div className='w-1/3'>
+    <div className='w-full'>
     { !loading && event && <EventCard
         price={event.price}
         imageSource={event.image}

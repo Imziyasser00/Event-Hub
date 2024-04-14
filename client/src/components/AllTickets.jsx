@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useUser } from "@clerk/clerk-react";
 import Axios from "axios";
 import TicketCard from "./TicketCard";
+import Loading from "./Loading";
 
 const AllTickets = () => {
   const { isSignedIn, user, isLoaded } = useUser();
@@ -25,13 +26,15 @@ const AllTickets = () => {
     }
   }, [isLoaded, isSignedIn]);
   return (
-    <div className="grid grid-col-3  my-12">
+    <div className="my-8 grid grid-cols-3 gap-4">
+    {isLoading && (<div className=""><Loading /></div>)}
       {!isLoading &&
         tickets.map((item, index) => (
-          <div key={index}>
+          <div key={index} className="w-full">
             <TicketCard ticket={item} />
           </div>
         ))}
+        
     </div>
   );
 };
