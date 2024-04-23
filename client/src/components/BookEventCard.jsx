@@ -16,11 +16,8 @@ const BookEventCard = ({ id, date, price, location, time }) => {
         .then((res) => {
           setData(res.data);
           console.log(data)          
-          res.data.map(
-            (item) => {
-              if(id == item.eventId) {setBooked("Already Booked");
-              }}
-          );
+           const isBooked = res.data.some( (item) => id == item.eventId );
+          if(isBooked) setBooked("Already Booked")
           
           setLoading(false);
         })

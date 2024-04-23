@@ -20,7 +20,7 @@ const HeroFilter = () => {
         <p className="text-white pb-3 font-medium">Location</p>
         <Select
           options={citiesOptions}
-          onChange={(e) => setCity(e.value)}
+          onChange={(e) => setCit=ry(e.value)}
           className="h-18"
         />
       </div>
