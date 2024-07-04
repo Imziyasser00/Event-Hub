@@ -9,9 +9,6 @@ const Hero = () => {
   return (
     <div className="w-full pt-5 relative">
       <img src={HeroBg} alt="gero background" className="z-0"/>
-      <div className="absolute w-full">
-        <HeroFilter />
-      </div>
       <div className="mt-16">
         <HomeEvents />
       </div>

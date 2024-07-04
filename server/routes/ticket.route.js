@@ -37,6 +37,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const ticket = await Ticket.findById(id);
+    res.status(200).json(ticket);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 router.get("/user/:id", async (req, res) => {
   try {
     const userId = req.params.id;

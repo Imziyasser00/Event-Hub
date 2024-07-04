@@ -54,9 +54,9 @@ const EventHero = () => {
               <div className="bg-[#00000082] absolute w-full h-full top-0 rounded-md left-0"></div>
             </div>
             <div className="w-full h-full absolute text-white top-0 left-0">
-              <div className="w-full h-full flex">
-                <div className="w-1/2 flex flex-col justify-end mb-24 pl-12">
-                  <div>
+              <div className="w-full h-full flex flex-col md:flex-row">
+                <div className="w-full md:w-1/2 flex flex-col justify-end mb-24 pl-12">
+                  <div className="flex flex-col justify-center mt-20">
                     <h2 className="text-5xl w-full font-bold">
                       {eventData.eventName}
                     </h2>
@@ -68,7 +68,7 @@ const EventHero = () => {
                     </h2>
                   </div>
                 </div>
-                <div className="h-full w-1/2 flex justify-end mr-24 items-center">
+                <div className="h-full w-full lg:w-1/2 flex justify-center md:justify-end mr-0 md:mr-24 items-center">
                   <div className="w-4/6">
                     <BookEventCard
                       id={eventData._id}
@@ -82,8 +82,8 @@ const EventHero = () => {
               </div>
             </div>
           </div>
-          <div className="flex w-full h-full ">
-            <div className="w-1/2 p-8 flex flex-col gap-5">
+          <div className="flex flex-col md:flex-row w-full h-full ">
+            <div className="w-full md:w-1/2 p-8 flex flex-col gap-5">
               <div className="">
                 <h2 className="text-2xl font-bold">Description</h2>
                 <div className="pt-5">{eventData.description}</div>
@@ -137,7 +137,7 @@ const EventHero = () => {
                 </div>
               </div>
             </div>
-            <div className="h-full w-1/2">
+            <div className="h-full w-full md:w-1/2">
               <div className="p-8 flex flex-col gap-6">
                 <h2 className="text-2xl font-bold">Event location</h2>
                 <img src={map} alt="map" className="" />

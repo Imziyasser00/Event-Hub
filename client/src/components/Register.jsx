@@ -40,14 +40,16 @@ const Register = () => {
     setCardName(value);
   };
 
-  const handleNumber = (e) => {
+  const handleCard = (e) => {
     // Retrieve the input value
     let value = e.target.value;
-
+    console.log(value);
+    
     // Remove non-digit characters
-    const numericValue = value.replace(/\D/g, "");
+    let numericValue = value.replace(/\D/g, "");
     if (numericValue.length > 16) {
-      value = numericValue.slice(0, 12);
+      numericValue = numericValue.slice(0, 16);
+      console.log(value);
     }
 
     // Add spaces every four digits
@@ -91,8 +93,8 @@ const Register = () => {
   }, [isLoaded, isSignedIn, id]);
 
   return (
-    <div className="w-full flex m-5 mb-12">
-      <div className="w-1/2 mt-16 border-r-4 border-primary">
+    <div className="w-full flex flex-col md:flex-row m-5 mb-12">
+      <div className="w-full md:w-1/2 mt-16 border-r-4 border-primary">
         <div className="text-xl text-primary flex gap-4 justify-start items-center">
           <FaCreditCard /> <span className="font-bold ">Payment</span>
         </div>
@@ -140,7 +142,7 @@ const Register = () => {
                 </div>
                 <div className="w-full relative">
                   <input
-                    onChange={handleNumber}
+                    onChange={handleCard}
                     type="text"
                     value={cardNumber}
                     className="w-5/6 mt-3 font-bold text-primary border border-primary border-2 py-2 px-4 rounded-md bg-purple-100 focus:border-primary"
@@ -210,7 +212,7 @@ const Register = () => {
                     onChange={handleCcv}
                     type="text"
                     value={ccv}
-                    className="w-1/5 mt-3 pr-2 border flex font-medium tracking-wider text-primary border-primary tracking-wide border-2 py-2 px-4 rounded-md bg-purple-100 focus:border-primary"
+                    className="w-3/5 md:w-1/5 mt-3 pr-2 border flex font-medium tracking-wider text-primary border-primary tracking-wide border-2 py-2 px-4 rounded-md bg-purple-100 focus:border-primary"
                   />
                 </div>
               </div>
@@ -218,7 +220,7 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2">
         <div className="font-bold text-2xl text-primary mt-16 m-8">
           Event Details :
         </div>

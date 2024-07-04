@@ -28,8 +28,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
         <BrowserRouter>
-          <div className=" bg-bgColor  min-h-screen">
-            <div className="max-w-7xl mx-auto min-h-screen ">
+          <div className=" bg-bgColor w-full min-h-screen">
+            <div className="w-full md:max-w-7xl mx-auto min-h-screen ">
               <Navbar />
               <Routes>
                 <Route path="/" element={<Home />}/>

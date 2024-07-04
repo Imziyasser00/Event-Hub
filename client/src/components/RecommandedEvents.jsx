@@ -25,7 +25,7 @@ const RecommandedEvents = ({ category }) => {
       <div>
         <h2 className="text-2xl font-bold">Other events you may like</h2>
       </div>
-      <div className="w-full grid grid-cols-3 mt-8 gap-5">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-8 gap-5">
       {!loading &&
         recommandedEvents.map((item, index) => (
             <EventCard

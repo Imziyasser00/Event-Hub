@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import EventCard from '../components/EventCard';
+import { pdf } from '@react-pdf/renderer';
+import Ticket from './Ticket';
+import { saveAs } from 'file-saver';
+
 
 const TicketCard = ({ticket}) => {
+  const generateAndDownloadPDF = async () => {
+    const blob = await pdf(<Ticket eventId={ticket.eventId}  ticketId={ticket._id}/>).toBlob();
+    saveAs(blob, 'document.pdf');
+  };
     const [event, setEvents] = useState()
     const [loading, setLoading] = useState(true)
     useEffect(() => {
@@ -28,8 +36,13 @@ const TicketCard = ({ticket}) => {
         location={event.location}
         id={event._id}
         purchasedAt={ticket.purchasedAt}
+        ticket={true}
+        Download={generateAndDownloadPDF}
+        eventId={ticket.eventId}
+        ticketId={ticket._id}
       />
     }
+    
     
     </div>
   )

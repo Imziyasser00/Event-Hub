@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { SignedIn } from "@clerk/clerk-react";
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import Ticket from './Ticket';
 
-const EventCard = ({ imageSource, id, price, purchasedAt, title, date, time, location }) => {
+const EventCard = ({ imageSource, id,ticket = undefined,Download,eventId,ticketId,  price, purchasedAt, title, date, time, location }) => {
   
   const [isEventIncluded, setIsEventIncluded] = useState()
 
@@ -62,14 +64,18 @@ const EventCard = ({ imageSource, id, price, purchasedAt, title, date, time, loc
           </div>
           <SignedIn>
           {console.log(id)}
-            <div className="flex justify-center items-center w-2/5">
+            {!ticket && (<div className="flex justify-center items-center w-2/5">
               <a
               href={isEventIncluded}
                 className="bg-primary text-white py-4 px-8 -mx-4 rounded-lg"
               >
                 View More
               </a>
-            </div>
+            </div>)}
+              {ticket && (<PDFDownloadLink document={<Ticket eventId={eventId} ticketId={ticketId} />} fileName="ticket.pdf">
+                {({ loading }) => (loading ? 'Loading document...' : 'Download now!')}
+              </PDFDownloadLink>)}
+            
           </SignedIn>
         </div>
       </div>
