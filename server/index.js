@@ -15,10 +15,13 @@ app.use(express.static("public"))
 app.use("/api/event", eventRoute);
 app.use("/api/tickets", ticketRoute);
 
-// MONGOOSE SETUP 
+// MONGOOSE SETUP
+
 
 const PORT = 3001;
-mongoose.connect("mongodb+srv://imziyasser00:Dimareal@cluster0.bl6jr6m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(()=>{
-    app.listen(PORT, () => console.log("MongoDb is Connected"))
-})
-.catch((err) => console.log(err + " db is not connected"))
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const uri = "mongodb+srv://imziyasser00:testtesttest@cluster0.bl6jr6m.mongodb.net/?retryWrites=true&w=majority";
+
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB is Connected'))
+    .catch((err) => console.log(err, "db is not connected"));
